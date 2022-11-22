@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position03 : hover,postion 실습</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    img {
+      vertical-align: middle;
+      max-width: 100%;
+    }
+
+    .hover {
+      padding: 100px 0;
+    }
+
+    .inner {
+      display: flex;
+      width: 1200px;
+      margin: 0 auto;
+      gap: 30px;
+    }
+
+    .inner figure {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+    }
+    .inner figure .box {
+      top: 100px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      display: flex;
+      /* 가로로 가운대로 오게 만듦 */
+      justify-content: center;
+      /* 세로로 가운대로 오게 만듦 */
+      align-items: center;
+      opacity: 0;
+    }
+
+    .inner figure:hover .box {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      display: flex;
+      /* 가로로 가운대로 오게 만듦 */
+      justify-content: center;
+      /* 세로로 가운대로 오게 만듦 */
+      align-items: center;
+      opacity: 1;
+      transition: 0.5s;
+    }
+
+    .inner figure .box2 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      font-size: 20px;
+      padding: 10px 5px;
+      transform: translate(0, 100%);
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border: 1px solid #ddd;
+
+      transition: 0.5s;
+    }
+    .inner figure:hover .box2 {
+      transform: translate(0, 0);
+    }
+
+    .inner figure .box3 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .inner figure .box3 span::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 0;
+      height: 0;
+      border-top: 1px solid #fff;
+      border-left: 1px solid #fff;
+      transition: 0.5s;
+      box-sizing: border-box;
+      overflow: hidden;
+      opacity: 0;
+    }
+
+    .inner figure .box3 span::before {
+      border-top: 1px solid #fff;
+      border-left: 1px solid #fff;
+      opacity: 1;
+    }
+    .inner figure .box3:hover span::before {
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+    }
+
+    .inner figure .box3 span::after {
+      content: "";
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      width: 0;
+      height: 0;
+      border-bottom: 1px solid #fff;
+      border-right: 1px solid #fff;
+      box-sizing: border-box;
+      transition: 0.5s;
+      opacity: 0;
+    }
+
+    .inner figure .box3 span::after {
+      border-bottom: 1px solid #fff;
+      border-right: 1px solid #fff;
+      opacity: 1;
+    }
+
+    .inner figure .box3:hover span::after {
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+    }
+  </style>
+  <body>
+    <section class="hover">
+      <div class="inner">
+        <figure>
+          <img src="./img/다운로드.jpg" alt="" />
+          <div class="box">
+            <span>Lorem, ipsum.</span>
+          </div>
+        </figure>
+        <figure>
+          <img src="./img/다운로드.jpg" alt="" />
+          <div class="box2">
+            <i class="xi-cart"></i>
+            <i class="xi-heart"></i>
+          </div>
+        </figure>
+        <figure>
+          <img src="./img/다운로드.jpg" alt="" />
+          <div class="box3">
+            <span></span>
+          </div>
+        </figure>
+      </div>
+    </section>
+  </body>
+</html>
